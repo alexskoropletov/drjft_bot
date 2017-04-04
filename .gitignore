@@ -1,2 +1,4 @@
 .idea
 node_modules/
+/bin/config.dev.js
+/bin/config.prod.js
