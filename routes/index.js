@@ -1,8 +1,8 @@
 var express = require('express');
 var Twitter = require('twitter');
+var OAuth2 = require('oauth').OAuth2;
 var config = require('../config');
 var router = express.Router();
-
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -14,11 +14,27 @@ router.get('/', function (req, res, next) {
 
 /* GET home page. */
 router.get('/scan_for_jobs', function (req, res, next) {
-    var client = new Twitter({
-        consumer_key: config.twitter.api_key,
-        consumer_secret: config.twitter.api_secret,
-        bearer_token: config.twitter.api_key + ":" + config.twitter.api_secret
-    });
+    var oauth2 = new OAuth2(
+        config.twitter.api_key,
+        config.twitter.api_secret,
+        'https://api.twitter.com/',
+        null,
+        'oauth2/token',
+        null
+    );
+    oauth2.getOAuthAccessToken(
+        '',
+        {'grant_type': 'client_credentials'},
+        function (e, bearer_token) {
+            var client = new Twitter({
+                consumer_key: config.twitter.api_key,
+                consumer_secret: config.twitter.api_secret,
+                bearer_token: bearer_token
+            });
+
+            // client.
+        }
+    );
 
     res.render('scan', {});
 });
