@@ -1,5 +1,6 @@
 var express = require('express');
-var twitter = require('twitter');
+var Twitter = require('twitter');
+var config = require('../config');
 var router = express.Router();
 
 

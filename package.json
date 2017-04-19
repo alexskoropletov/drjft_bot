@@ -1,7 +1,7 @@
 {
   "name": "drjft-bot",
   "description": "Telegram bot that allows you to search through recent remote jobs found in twitter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "start": "forever start --minUptime 1000 --spinSleepTime 1000 ./bin/www",
