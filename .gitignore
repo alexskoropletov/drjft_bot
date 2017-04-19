@@ -2,3 +2,4 @@
 node_modules/
 /bin/config.dev.js
 /bin/config.prod.js
+/config/production.json
